@@ -15,7 +15,7 @@ $export .= "- Total free space: *{$freeSpace}G*\n";
 $export .= "- Total used space: {$usedSpace}G\n";
 $export .= "- List of sites bigger than " . ($treshold / $units['M']) . "M:\n";
 foreach ($lines as $line) {
-	list($size, $dir) = explode("\t", $line);
+	list($size, $dir) = @explode("\t", $line);
 	if (!preg_match('/([0-9]+(\.[0-9]*)?)([TGMKB])/', $size, $matches)) {
 		continue;
 	}
