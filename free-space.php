@@ -1,22 +1,18 @@
 <?php
 require __DIR__ . '/bootstrap.php';
 
-$freeSpace = round( (disk_free_space('.') / $units['M']), 2);
+$freeSpace = round( (disk_free_space('.') / $units['G']), 2);
 
-if ($freeSpace <= 1024 / 2) {
-	slack::alert('*Warning!* Free space on the server is smaller than 0.5G!');
-} else
+switch (TRUE) {
+	case ($freeSpace <= 0.5):
+		slack::alert('*Warning!* Free space on the server is smaller than 0.5G!');
+		break;
 
-if ($freeSpace <= 1024 * 1) {
-	slack::alert('*Warning!* Free space on the server is smaller than 1G!');
-} else
+	case ($freeSpace <= 1):
+		slack::alert('*Warning!* Free space on the server is smaller than 1G!');
+		break;
 
-if ($freeSpace <= 1024 * 5) {
-	slack::alert('*Warning!* Free space on the server is smaller than 5G!');
-} else
-
-if ($freeSpace <= 1024 * 10) {
-	slack::alert('*Warning!* Free space on the server is smaller than 10G!');
+	case (defined("WARNING_TRESHOLD") && $freeSpace <= WARNING_TRESHOLD):
+		slack::alert(sprintf('*Warning!* Free space on the server is smaller than %sG!', WARNING_TRESHOLD));
+		break;
 }
-
-//slack::alert($export);
