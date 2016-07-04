@@ -10,10 +10,10 @@
 
 	```
 	<?php
-	// URL webhook endpoing
+	// URL webhook endpoint. Required.
 	define('SLACK_ENDPOINT', 'https://hooks.slack.com/services/***/***/***');
 
-	// Set custom warning threshold in GB
+	// Set custom warning threshold in GB. Optional.
 	define('WARNING_TRESHOLD', 5);
 	```
 4. Create cron jobs - **Don't forget to change the paths!**
