@@ -10,10 +10,10 @@ $treshold *= $units['M'];
 $freeSpace = round( (disk_free_space('.') / $units['G']), 2);
 $usedSpace = round( (disk_total_space('.') / $units['G']) - $freeSpace, 2);
 
-$export = '*Oz Server disk usage report for ' . date('Y/m/d') . ":*\n";
-$export .= "- Total free space: *{$freeSpace}G*\n";
-$export .= "- Total used space: {$usedSpace}G\n";
-$export .= "- List of sites bigger than " . ($treshold / $units['M']) . "M:\n";
+$export = '*Disk usage report for ' . date('Y/m/d') . ":*\n";
+$export .= " - Total free space: *{$freeSpace}G*\n";
+$export .= " - Total used space: {$usedSpace}G\n";
+$export .= " - List of sites bigger than " . ($treshold / $units['M']) . "M:\n";
 foreach ($lines as $line) {
 	list($size, $dir) = @explode("\t", $line);
 	if (!preg_match('/([0-9]+(\.[0-9]*)?)([TGMKB])/', $size, $matches)) {
