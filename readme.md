@@ -5,8 +5,8 @@
 1. Git clone the repo `git clone git@bitbucket.org:circul8_communicate/slack-alerts.git`
 2. Create files `touch slack-alerts/du.txt` and `touch slack-alerts/config.php`
 3. Make the `du.txt` file readable: `chmod 0777 slack-alerts/du.txt`
-5. Create Slack's webhook
-6. Set the configuration
+5. Create Slack's webhook at [https://circul8.slack.com/apps/A0F7XDUAZ-incoming-webhooks](https://circul8.slack.com/apps/A0F7XDUAZ-incoming-webhooks)
+6. Set the configuration to `config.php`
 
 	```
 	<?php
