@@ -23,6 +23,6 @@
 	
 		`0	*	*	*	*	php ~/slack-alerts/free-space.php`
 		
-		`0 3 * * * du -h --max-depth=1 /var/www/vhosts/ 2>/dev/null | sort -hr > ~/slack-alerts/du.txt`
+		`0	3	*	*	*	du -h --max-depth=1 /var/www/vhosts/ 2>/dev/null | sort -hr > ~/slack-alerts/du.txt`
 		
 		`0	4	*	*	1	php ~/slack-alerts/du.php`
