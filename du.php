@@ -12,13 +12,12 @@ $usedSpace = round((disk_total_space('.') / $units['G']) - $freeSpace, 2);
 
 $dirs = [];
 foreach ($lines as $line) {
-	@list($size, $dir) = @explode("\t", $line);
-	if (!preg_match('/^([0-9]+(\.[0-9]*)?)([TGMKB])\s+(.*)$/', $size, $matches)) {
+	if (!preg_match('/^([0-9]+(\.[0-9]*)?)([TGMKB])\s+(.*)/', $line, $matches)) {
 		continue;
 	}
 	$size = $matches[1];
 	$unit = $matches[3];
-	$dir = $matches[4];
+	$dir = trim($matches[4]);
 
 	$bytes = $size * $units[$unit];
 	if ($bytes >= $treshold) {
